@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Avengers Quiz</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color:#3DFA96;
+        }
+
+        .result-box {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="result-box">
+        <h1>Quiz Result</h1>
+        <p>Your score: {{ score }}/{{ total_questions }}</p>
+        <p>You are {{ (score / total_questions) * 100 }}% Avengers fan.</p>
+        <form action="/" method="GET">
+            <button type="submit">Start Again</button>
+        </form>
+
+        <p> OR </p>
+        <form action="/fan" method="POST">
+            <input type="hidden" name="score" value="{{ score }}">
+            <button type="submit">Fan Percentage</button>
+        </form>
+    </div>
+</body>
+</html>
+
+
+

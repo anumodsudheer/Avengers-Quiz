@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Avengers Fan Percentage</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .fan-box {
+            text-align: center;
+            background-color:#5DF77B
+        }
+
+        .percentage-label {
+            background-color: #cdebad;
+            padding: 10px;
+            border-radius: 5px;
+            color: #000;
+            font-weight: bold;
+        }
+
+        .selected-button {
+            background-color: green;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="fan-box">
+        <img src="{{ url_for('static', filename='main2.jpg') }}" alt="Avengers Image">
+        <h1>Avengers Fan Percentage</h1>
+        <p>You are <span class="percentage-label">{{ percentage }}%</span> Avengers fan.</p>
+    </div>
+</body>
+</html>

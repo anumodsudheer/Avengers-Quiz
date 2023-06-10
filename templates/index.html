@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Avengers Quiz Website</title>
+    <style>
+        body {
+            background-image: url("/static/images/bg.jpg");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+        }
+
+        h1 {
+            color: white;
+        }
+
+        p {
+            color: white;
+        }
+
+        .start-button {
+            width: 5cm;
+            height: 2cm;
+            border-radius: 1cm;
+            background-color: #3eb14c;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+        }
+
+        .start-button:hover {
+            background-color: #32a141;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h1>Welcome to the Avengers Quiz!</h1>
+        <p>LET'S SEE YOUR FAN PERCENTAGE!!</p>
+        <form action="/start" method="GET">
+            <button type="submit" class="start-button">Start Quiz</button>
+        </form>
+    </div>
+</body>
+</html>
+

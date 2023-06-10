@@ -1,0 +1,77 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Avengers Quiz Website</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #3DFA96;
+        }
+
+        .quiz-box {
+            text-align: center;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .option {
+            display: inline-block;
+            padding: 10px;
+            margin: 10px;
+            border: none;
+            background-color: #f1f1f1;
+            color: #000;
+            cursor: pointer;
+            border-radius: 20px;
+            width: 5cm;
+            height: 1cm;
+            line-height: 1cm;
+            text-align: center;
+        }
+
+        .selected {
+            background-color: #08A727;
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-box">
+        <h1>Question {{ question.id }}</h1>
+        <p>{{ question.question }}</p>
+        <form action="/quiz" method="POST" id="quizForm">
+            {% for option in question.options %}
+                <div class="option" onclick="selectOption(this)" data-value="{{ option }}">{{ option }}</div>
+            {% endfor %}
+            <br>
+            <input type="hidden" name="answer" id="selectedOption">
+            <button type="button" onclick="submitAnswer()">Next</button>
+        </form>
+    </div>
+    <script>
+        var selectedOption = null;
+
+        function selectOption(option) {
+            if (selectedOption) {
+                selectedOption.classList.remove("selected");
+            }
+            option.classList.add("selected");
+            selectedOption = option;
+            document.getElementById("selectedOption").value = option.getAttribute("data-value");
+        }
+
+        function submitAnswer() {
+            if (!selectedOption) {
+                alert("Please select an option.");
+                return;
+            }
+            document.getElementById("quizForm").submit();
+        }
+    </script>
+</body>
+</html>
+
